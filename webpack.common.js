@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const Webpack = require("webpack");
 
@@ -37,6 +38,14 @@ const wpConfig = {
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist")
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: "Asserest schema documentation",
+            showErrors: this.mode == "development",
+            language: "en",
+            template: path.resolve(__dirname, "template.html")
+        })
+    ],
     externals: {
         "React": "react",
         "ReactDOM": "react-dom"

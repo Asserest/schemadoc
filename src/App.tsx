@@ -1,11 +1,24 @@
 import * as React from "react";
-import Navbar from "./components/Navbar";
+import {
+    createBrowserRouter,
+    createRoutesFromElements,
+    Route,
+    RouterProvider
+} from "react-router-dom";
 
-import { Container } from "react-bootstrap";
+import * as ADSPages from "./page/Export";
 
-const App = <Container fluid={true}>
-    <Navbar/>
-</Container>;
+const router = createBrowserRouter(
+    createRoutesFromElements(
+        <Route path={"/"} element={<ADSPages.Index/>}>
+
+        </Route>
+    )
+);
+
+const App: JSX.Element = <React.StrictMode>
+    <RouterProvider router={router}/>
+</React.StrictMode>;
 
 export {
     App
