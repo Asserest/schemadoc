@@ -4,6 +4,6 @@ import { ADSPage } from "./Abstract";
 
 export default class ADSIndex extends ADSPage {
     content(): React.ReactNode {
-        return <h1>I am index</h1>;
+        return <h1>Sample text</h1>;
     }
 }
