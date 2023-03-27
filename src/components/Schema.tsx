@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import * as MDNTable from "@rmwc/data-table";
 import { Prism } from "react-syntax-highlighter";
 
@@ -9,8 +9,12 @@ import "../scss/Schema.scss";
 
 interface SchemaComponentProp {
     name: string,
-    docs: ReadonlyArray<SchemaDocumentation>
+    docs: ReadonlyArray<SchemaDocumentation>,
+    example: object | object[],
+    schemaURL: string
 }
+
+const schemaRoot = "https://asserest.github.io/json-schema/";
 
 class SchemaComponent extends React.Component<SchemaComponentProp, Record<string, never>, unknown> {
     private buildDocColumn(value: SchemaDocumentation): React.ReactNode {
@@ -54,12 +58,13 @@ class SchemaComponent extends React.Component<SchemaComponentProp, Record<string
                 <Col className="ms-2 me-1 my-1 my-lg-0">
                     <p className="fs-5">Example:</p>
                     <Prism language={"json"}>
-                        {
-                            JSON.stringify({
-                                foo: "bar"
-                            }, null, 4)
-                        }
+                        {JSON.stringify(this.props.example, null, 4)}
                     </Prism>
+                </Col>
+            </Row>
+            <Row>
+                <Col className="m-2 d-flex justify-content-center">
+                    <Button color={"primary"} href={`${schemaRoot}${this.props.schemaURL}`}>Schema source code</Button>
                 </Col>
             </Row>
         </Container>;

@@ -16,6 +16,6 @@ export default class ADSSchema extends ADSPage {
                     optional: false
                 }
             ]
-        }/>;
+        } example={{foo:"bar"}} schemaURL={""}/>;
     }
 }
