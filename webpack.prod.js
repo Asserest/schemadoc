@@ -12,6 +12,9 @@ module.exports = merge(commonConf, {
             new CssMinimizerPlugin()
         ]
     },
+    output: {
+        publicPath: "/"
+    },
     plugins: [
         new TerserPlugin()
     ]

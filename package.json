@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "Documentation website of Asserest configuration script.",
+  "homepage": "/",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "test": "webpack serve --open --config webpack.dev.js"

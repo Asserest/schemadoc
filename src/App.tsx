@@ -1,24 +1,29 @@
 import * as React from "react";
 import {
-    createBrowserRouter,
-    createRoutesFromElements,
+    Link,
     Route,
-    RouterProvider
+    BrowserRouter,
+    Routes,
+    Outlet,
 } from "react-router-dom";
 
+import Nav from "./components/Navbar";
 import * as ADSPages from "./page/Export";
 
-const router = createBrowserRouter(
-    createRoutesFromElements(
-        <Route path={"/"} element={<ADSPages.Index/>}>
 
+const App: JSX.Element = <BrowserRouter>
+    <Routes>
+        <Route path={"/"} element={
+            <>
+                <Nav/>
+                <Outlet/>
+            </>
+        }>
+            <Route index element={<ADSPages.Index/>}/>
+            <Route path={"schema"} element={<ADSPages.SchemaDoc/>}/>
         </Route>
-    )
-);
-
-const App: JSX.Element = <React.StrictMode>
-    <RouterProvider router={router}/>
-</React.StrictMode>;
+    </Routes>
+</BrowserRouter>;
 
 export {
     App

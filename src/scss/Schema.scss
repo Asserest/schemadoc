@@ -1,0 +1,28 @@
+@import "@material/data-table/mdc-data-table.scss";
+
+div.mdc-data-table {
+    width: 100%;
+
+    table.mdc-data-table__table {
+        > thead {
+            > tr.mdc-data-table__header-row {
+                > th.mdc-data-table__header-cell {
+                    font-size: 1.125rem;
+                }
+            }
+        }
+        > tbody.mdc-data-table__content {
+            > tr.mdc-data-table__row {
+                > td.mdc-data-table__cell {
+                    font-size: 0.95rem;
+                    > code.value-type {
+                        color: black;
+                        background-color: #CFCFCF;
+                        border-radius: 0.25rem;
+                        padding: 0.225rem;
+                    }
+                }
+            }
+        }
+    }
+}

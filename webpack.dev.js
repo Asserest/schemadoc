@@ -7,7 +7,8 @@ module.exports = merge(commonConf, {
     devServer: {
         static: "./dist",
         port: 3969,
-        https: true
+        https: true,
+        historyApiFallback: true
     }
 });
 

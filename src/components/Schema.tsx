@@ -1,10 +1,11 @@
 import * as React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import * as MDNTable from "@rmwc/data-table";
+import { Prism } from "react-syntax-highlighter";
 
 import { SchemaDocumentation, ValueType } from "../data/schema_data";
 
-import "@material/data-table/mdc-data-table.scss";
+import "../scss/Schema.scss";
 
 interface SchemaComponentProp {
     name: string,
@@ -16,7 +17,9 @@ class SchemaComponent extends React.Component<SchemaComponentProp, Record<string
         return <MDNTable.DataTableRow>
             <MDNTable.DataTableCell alignMiddle>{value.key}</MDNTable.DataTableCell>
             <MDNTable.DataTableCell alignMiddle>{value.desc}</MDNTable.DataTableCell>
-            <MDNTable.DataTableCell alignMiddle><pre style={{margin: 0}}>{ValueType[value.type].toLowerCase()}</pre></MDNTable.DataTableCell>
+            <MDNTable.DataTableCell alignMiddle>
+                <code className={"value-type"}>{ValueType[value.type].toLowerCase()}</code>
+            </MDNTable.DataTableCell>
             <MDNTable.DataTableCell alignMiddle>{value.optional ? "Yes" : "No"}</MDNTable.DataTableCell>
             <MDNTable.DataTableCell alignMiddle>{value.comment ?? "(N/A)"}</MDNTable.DataTableCell>
         </MDNTable.DataTableRow>;
@@ -29,9 +32,9 @@ class SchemaComponent extends React.Component<SchemaComponentProp, Record<string
                     <h3>{this.props.name}</h3>
                 </Col>
             </Row>
-            <Row>
-                <Col className="mt-3 mx-1 mx-lg-4">
-                    <MDNTable.DataTable style={{width: "100%"}}>
+            <Row className="my-2 table-container">
+                <Col className="mx-1 mx-lg-4 my-2 my-lg-0" lg={"8"}>
+                    <MDNTable.DataTable>
                         <MDNTable.DataTableContent>
                             <MDNTable.DataTableHead>
                                 <MDNTable.DataTableRow>
@@ -47,6 +50,16 @@ class SchemaComponent extends React.Component<SchemaComponentProp, Record<string
                             </MDNTable.DataTableBody>
                         </MDNTable.DataTableContent>
                     </MDNTable.DataTable>
+                </Col>
+                <Col className="ms-2 me-1 my-1 my-lg-0">
+                    <p className="fs-5">Example:</p>
+                    <Prism language={"json"}>
+                        {
+                            JSON.stringify({
+                                foo: "bar"
+                            }, null, 4)
+                        }
+                    </Prism>
                 </Col>
             </Row>
         </Container>;
