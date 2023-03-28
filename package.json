@@ -6,7 +6,8 @@
   "homepage": "/",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "test": "webpack serve --open --config webpack.dev.js"
+    "start": "webpack serve --open --config webpack.dev.js",
+    "test": "webpack --config webpack.test.js"
   },
   "keywords": [],
   "author": "Asserest",
