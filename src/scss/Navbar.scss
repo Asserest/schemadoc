@@ -1,6 +1,6 @@
 body {
     > div#root {
-        > nav.navbar:first-child {
+        > nav.navbar.top-nav:first-child {
             background-image: linear-gradient(to right, white 33.3%, #65E0FF, #4E36A5, #8062ff);
             box-shadow: 1.25px 2px 5px rgba($color: #000000, $alpha: 0.75);
 
