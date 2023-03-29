@@ -15,11 +15,13 @@ div.mdc-data-table {
             > tr.mdc-data-table__row {
                 > td.mdc-data-table__cell {
                     font-size: 0.95rem;
-                    > code.value-type {
+                    > code {
                         color: black;
+                        padding: 0.225rem;
+                    }
+                    > code.value-type {
                         background-color: #CFCFCF;
                         border-radius: 0.25rem;
-                        padding: 0.225rem;
                     }
                 }
             }

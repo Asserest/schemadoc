@@ -19,7 +19,7 @@ const schemaRoot = "https://asserest.github.io/json-schema/";
 class SchemaComponent extends React.Component<SchemaComponentProp, Record<string, never>, unknown> {
     private buildDocColumn(value: SchemaDocumentation): React.ReactNode {
         return <MDNTable.DataTableRow>
-            <MDNTable.DataTableCell alignMiddle>{value.key}</MDNTable.DataTableCell>
+            <MDNTable.DataTableCell alignMiddle>{value.key ?? <code>N/A</code>}</MDNTable.DataTableCell>
             <MDNTable.DataTableCell alignMiddle>{value.desc}</MDNTable.DataTableCell>
             <MDNTable.DataTableCell alignMiddle>
                 <code className={"value-type"}>{ValueType[value.type].toLowerCase()}</code>

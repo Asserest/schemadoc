@@ -8,7 +8,7 @@ enum ValueType {
 }
 
 interface SchemaDocumentation {
-    key: string,
+    key?: string,
     desc: string,
     type: ValueType,
     optional: boolean,
