@@ -5,10 +5,26 @@ import { BreakpointMatchMedia } from "./breakpoints";
 
 import "../scss/Navbar.scss";
 
+/**
+ * Navigation bar of the website.
+ * 
+ * It only for linking pages, nothing special.
+ */
 export default class ASDNavbar extends React.Component {
+    /**
+     * ID for identify collasp for toggle button event.
+     */
     private readonly navbarCollapseId: string = "adsNavBarCollapse";
+    /**
+     * Specify breakpoint require toggle button.
+     */
     private readonly breakpointMQ: MediaQueryList = BreakpointMatchMedia.lg;
 
+    /**
+     * Event function for converting between toggle button and oridinary navbar.
+     * 
+     * @param ev A listener object from provided {@link MediaQueryList}.
+     */
     private offcanvasBreakpointHandler(ev: MediaQueryListEvent) {
         const closeBtn: HTMLButtonElement = document.querySelector("body > div#adsNavBarCollapse[role='dialog'] > div.offcanvas-header:first-child > button.btn-close");
         if (
@@ -16,6 +32,7 @@ export default class ASDNavbar extends React.Component {
             && document.body.classList.contains("modal-open")
             && document.body.hasAttribute("data-rr-ui-modal-open")
         ) {
+            // Force close collapse if reached `lg` breakpoint.
             closeBtn.click();
         }
     }

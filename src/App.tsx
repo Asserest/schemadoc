@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import Nav from "./components/Navbar";
-import * as ADSPages from "./page/Export";
+import * as ASDPages from "./page/Export";
 
 
 const App: JSX.Element = <BrowserRouter>
@@ -18,8 +18,8 @@ const App: JSX.Element = <BrowserRouter>
                 <Outlet/>
             </>
         }>
-            <Route index element={<ADSPages.Index/>}/>
-            <Route path={"schema"} element={<ADSPages.SchemaDoc/>}/>
+            <Route index element={<ASDPages.Index/>}/>
+            <Route path={"schema"} element={<ASDPages.SchemaDoc/>}/>
         </Route>
     </Routes>
 </BrowserRouter>;

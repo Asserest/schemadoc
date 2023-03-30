@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import { ADSPage } from "./Abstract";
+import { ASDPage } from "./Abstract";
 
-export default class ADSIndex extends ADSPage {
+export default class ASDIndex extends ASDPage {
     content(): React.ReactNode {
         return <h1>Sample text</h1>;
     }

@@ -2,10 +2,10 @@ import * as React from "react";
 import { SchemaComponent } from "../components/Schema";
 import * as SchemaDocObject from "../data/schema_struct";
 
-import { ADSPage } from "./Abstract";
+import { ASDPage } from "./Abstract";
 
 
-export default class ADSSchema extends ADSPage {
+export default class ASDSchema extends ASDPage {
     content(): React.ReactNode {
         return <>
             {

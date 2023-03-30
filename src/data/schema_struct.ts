@@ -1,15 +1,38 @@
 import { SchemaDocumentation, ValueType } from "./schema_data";
 
+type JSONValue = string | number | boolean | { [x: string]: JSONValue } | Array<JSONValue>;
+
+/**
+ * A property of the schema component.
+ */
 interface SchemaComponentProp {
+    /**
+     * Documents name, basically refer to JSON schema filename.
+     */
     name: string,
+    /**
+     * Unique string for fragment to locate documentation.
+     */
     idTag: string,
+    /**
+     * Content of documentation.
+     */
     docs: ReadonlyArray<SchemaDocumentation>,
-    example: object | object[],
+    /**
+     * Example of JSON data using JavaScript object.
+     */
+    example: JSONValue,
+    /**
+     * Schema URL, actually is filename of JSON schema.
+     */
     schemaURL: string
 }
 
 export default SchemaComponentProp;
 
+/**
+ * A property for rendering `base.json` schema.
+ */
 const BASE: SchemaComponentProp = {
     name: "Base structre",
     idTag: "base",

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-abstract class ADSPage extends React.Component {
+abstract class ASDPage extends React.Component {
     abstract content(): React.ReactNode;
 
     render(): React.ReactNode {
@@ -10,4 +10,4 @@ abstract class ADSPage extends React.Component {
     }
 }
 
-export { ADSPage };
+export { ASDPage };

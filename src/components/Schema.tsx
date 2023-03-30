@@ -10,12 +10,29 @@ import "../scss/Schema.scss";
 
 const schemaRoot = new URL("https://asserest.github.io/json-schema/");
 
+/**
+ * A component for documenting each JSON schema file.
+ */
 class SchemaComponent extends React.Component<SchemaComponentProp, Record<string, never>, unknown> {
+    /**
+     * Generate the content for optional properties.
+     * 
+     * @param p_data Value of optional properites.
+     * 
+     * @returns Either actual value or monospace `(N/A)` if nulled.
+     */
     private static nullableHandler(p_data?: string | number | boolean): React.ReactNode {
         return p_data ?? <code>(N/A)</code>;
     }
 
-
+    /**
+     * Generate each column of table.
+     * 
+     * @param value Documentation of each keys.
+     * @param index Order index.
+     * 
+     * @returns A row of Material Design's data table in {@link React.ReactNode} form.
+     */
     private static buildDocColumn(value: SchemaDocumentation, index: number): React.ReactNode {
         return <MDNTable.DataTableRow key={index}>
             <MDNTable.DataTableCell alignMiddle>{SchemaComponent.nullableHandler(value.key)}</MDNTable.DataTableCell>
