@@ -51,6 +51,30 @@ const BASE: SchemaComponentProp = {
         {
             url: "ftp://example.com",
             "...": "(See in FTP schema)"
+        },
+        {
+            url: "https://example.com",
+            "...": "(See in URL schema)"
+        },
+        {
+            url: "ftp://example.com",
+            "...": "(See in FTP schema)"
+        },
+        {
+            url: "https://example.com",
+            "...": "(See in URL schema)"
+        },
+        {
+            url: "ftp://example.com",
+            "...": "(See in FTP schema)"
+        },
+        {
+            url: "https://example.com",
+            "...": "(See in URL schema)"
+        },
+        {
+            url: "ftp://example.com",
+            "...": "(See in FTP schema)"
         }
     ],
     schemaURL: "base.json"

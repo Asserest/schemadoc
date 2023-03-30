@@ -17,6 +17,16 @@ body {
         margin: 0;
         padding: 0;
     }
+
+    $content-list-width: (md: 50%, xl: 25%);
+
+    @each $bp, $w-size in $content-list-width {
+        @include media-breakpoint-up($bp) {
+            div.content-list {
+                width: $w-size;
+            }
+        }
+    }
 }
 
 code, pre {

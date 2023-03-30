@@ -1,5 +1,25 @@
+@import "~bootstrap";
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import "@material/data-table/mdc-data-table.scss";
+
+div.row {
+    > div.col.fragment-anchor:first-child {
+        position: relative;
+
+        > div.visually-hidden:first-child {
+            $navbar-height: ($spacer + $navbar-brand-height) * -2;
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            top: $navbar-height + 0.125rem;
+        }
+
+        > *:not(div.visually-hidden:first-child) {
+            position: static;
+        }
+    }
+}
 
 div.mdc-data-table {
     width: 100%;

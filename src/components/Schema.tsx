@@ -46,9 +46,10 @@ class SchemaComponent extends React.Component<SchemaComponentProp, Record<string
     }
 
     render(): React.ReactNode {
-        return <Container id={this.props.idTag}>
+        return <Container>
             <Row>
-                <Col>
+                <Col className={"fragment-anchor"}>
+                    <div className={"visually-hidden"} id={this.props.idTag}></div>
                     <h3>{this.props.name}</h3>
                 </Col>
             </Row>
