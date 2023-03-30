@@ -1,6 +1,6 @@
 import * as React from "react";
 import { SchemaComponent } from "../components/Schema";
-import { ValueType } from "../data/schema_data";
+import * as SchemaDocObject from "../data/schema_struct";
 
 import { ADSPage } from "./Abstract";
 
@@ -8,16 +8,10 @@ import { ADSPage } from "./Abstract";
 export default class ADSSchema extends ADSPage {
     content(): React.ReactNode {
         return <>
-            <SchemaComponent name="Sample" docs={
-                [
-                    {
-                        key: "Foo",
-                        desc: "Sample",
-                        type: ValueType.String,
-                        optional: false
-                    }
-                ]
-            } example={{foo:"bar"}} schemaURL={""}/>
+            {
+                [SchemaDocObject.BASE]
+                    .map((scp, index) => <SchemaComponent {...scp} key={index}/>)
+            }
         </>;
     }
 }

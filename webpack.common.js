@@ -32,7 +32,10 @@ const wpConfig = {
             ".ts",
             ".tsx",
             ".js"
-        ]
+        ],
+        fallback: {
+            URL: require.resolve("url-polyfill")
+        }
     },
     output: {
         filename: "bundle.js",
