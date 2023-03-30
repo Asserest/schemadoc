@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import "@material/data-table/mdc-data-table.scss";
 
 div.mdc-data-table {
@@ -14,17 +15,34 @@ div.mdc-data-table {
         > tbody.mdc-data-table__content {
             > tr.mdc-data-table__row {
                 > td.mdc-data-table__cell {
-                    font-size: 0.95rem;
+                    $cellFontSize: 0.95rem;
+
+                    font-size: $cellFontSize;
                     > code {
                         color: black;
                         padding: 0.225rem;
-                    }
-                    > code.value-type {
-                        background-color: #CFCFCF;
-                        border-radius: 0.25rem;
+
+                        &.value-type {
+                            background-color: #CFCFCF;
+                            border-radius: 0.25rem;
+                        }
+                        &.not-acceptable {
+                            font-size: $cellFontSize;
+                            font-weight: 300;
+                        }
                     }
                 }
             }
         }
+    }
+}
+
+pre.sample-script {
+    $prefFamily: 'Noto Sans Mono', monospace !important;
+
+    font-family: $prefFamily;
+
+    > code {
+        font-family: $prefFamily;
     }
 }

@@ -1,0 +1,39 @@
+@mixin scrollbar ($thumbColour, $trackColour) {
+    $scrollbar-length: 0.5em;
+    $scrollbar-length-idle: 0.05em;
+
+    * {
+        &:not(body)::-webkit-scrollbar {
+            width: $scrollbar-length-idle;
+            height: $scrollbar-length-idle;
+        }
+
+        &:not(body):hover::-webkit-scrollbar {
+            width: $scrollbar-length;
+            height: $scrollbar-length;
+        }
+
+        &::-webkit-scrollbar-button {
+            display: none;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: rgba($color: $trackColour, $alpha: 0.2);
+            transition: all ease-in-out 1s;
+
+             &:hover {
+                background-color: rgba($color: $trackColour, $alpha: 0.5);
+             }
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $thumbColour;
+            border-radius: 0.5rem;
+        }
+    }
+
+    body::-webkit-scrollbar {
+        width: $scrollbar-length;
+        height: $scrollbar-length;
+    }
+}

@@ -1,0 +1,15 @@
+$brand-colours: (
+    "cyan": #65E0FF,
+    "blue": #4E36A5,
+    "indigo": #8062ff
+);
+
+@function brand-colours-gorder() {
+    $values: ();
+
+    @each $key, $value in $brand-colours {
+        $values: append($values, $value, $separator: comma);
+    }
+
+    @return $values;
+}
