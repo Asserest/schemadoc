@@ -9,7 +9,7 @@ const Webpack = require("webpack");
  */
 const wpConfig = {
     entry: "./src/index.ts",
-    devtool: "inline-source-map",
+    devtool: "source-map",
     module: {
         rules: [
             {
@@ -22,7 +22,12 @@ const wpConfig = {
                 use: [
                     "style-loader",
                     "css-loader",
-                    "sass-loader"
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            implementation: require.resolve("sass")
+                        }
+                    }
                 ]
             }
         ]
@@ -39,7 +44,8 @@ const wpConfig = {
     },
     output: {
         filename: "bundle.js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "dist"),
+        clean: true
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -48,11 +54,7 @@ const wpConfig = {
             language: "en",
             template: path.resolve(__dirname, "template.html")
         })
-    ],
-    externals: {
-        "React": "react",
-        "ReactDOM": "react-dom"
-    }
+    ]
 };
 
 module.exports = wpConfig;
