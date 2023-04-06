@@ -7,7 +7,11 @@ import {
 } from "react-router-dom";
 
 import Nav from "./components/Navbar";
-import * as ASDPages from "./page/Export";
+
+const ASDPages = {
+    Index: React.lazy(() => import("./page/Index")),
+    SchemaDoc: React.lazy(() => import("./page/SchemaDoc"))
+};
 
 
 const App: JSX.Element = <BrowserRouter>
@@ -18,8 +22,16 @@ const App: JSX.Element = <BrowserRouter>
                 <Outlet/>
             </>
         }>
-            <Route index element={<ASDPages.Index/>}/>
-            <Route path={"schema"} element={<ASDPages.SchemaDoc/>}/>
+            <Route index element={
+                <React.Suspense>
+                    <ASDPages.Index/>
+                </React.Suspense>
+            }/>
+            <Route path={"schema"} element={
+                <React.Suspense>
+                    <ASDPages.SchemaDoc/>
+                </React.Suspense>
+            }/>
         </Route>
     </Routes>
 </BrowserRouter>;
