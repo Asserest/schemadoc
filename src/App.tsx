@@ -19,18 +19,16 @@ const App: JSX.Element = <BrowserRouter>
         <Route path={"/"} element={
             <>
                 <Nav/>
-                <Outlet/>
+                <React.Suspense>
+                    <Outlet/>
+                </React.Suspense>
             </>
         }>
             <Route index element={
-                <React.Suspense>
-                    <ASDPages.Index/>
-                </React.Suspense>
+                <ASDPages.Index/>
             }/>
             <Route path={"schema"} element={
-                <React.Suspense>
-                    <ASDPages.SchemaDoc/>
-                </React.Suspense>
+                <ASDPages.SchemaDoc/>
             }/>
         </Route>
     </Routes>
