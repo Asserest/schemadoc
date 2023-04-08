@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import Nav from "./components/Navbar";
+import LoadingComponent from "./components/Loading";
 
 const ASDPages = {
     Index: React.lazy(() => import("./page/Index")),
@@ -19,7 +20,7 @@ const App: JSX.Element = <BrowserRouter>
         <Route path={"/"} element={
             <>
                 <Nav/>
-                <React.Suspense>
+                <React.Suspense fallback={<LoadingComponent/>}>
                     <Outlet/>
                 </React.Suspense>
             </>
