@@ -1,6 +1,5 @@
 import { SchemaDocumentation, ValueType } from "./schema_data";
-
-type JSONValue = string | number | boolean | { [x: string]: JSONValue } | Array<JSONValue>;
+import { JSONValue } from "../typedef";
 
 /**
  * A property of the schema component.

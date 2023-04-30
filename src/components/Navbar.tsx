@@ -58,8 +58,18 @@ export default class ASDNavbar extends React.Component {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav>
-                            <Nav.Link href={"/"}>Home</Nav.Link>
-                            <Nav.Link href={"/schema"}>Schema</Nav.Link>
+                            {
+                                Object.entries({
+                                    Home: "/",
+                                    Schmea: "/schema"
+                                }).map(function (entry, index) {
+                                    const [displayName, hrefPath] = entry;
+
+                                    return <Nav.Link key={index} href={hrefPath} disabled={window.location.pathname === hrefPath}>
+                                        {displayName}
+                                    </Nav.Link>;
+                                })
+                            }
                         </Nav>
                     </Offcanvas.Body>
                     <Offcanvas.Header>

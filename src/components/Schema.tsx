@@ -5,6 +5,7 @@ import { Prism } from "react-syntax-highlighter";
 
 import { SchemaDocumentation, ValueType } from "../data/schema_data";
 import SchemaComponentProp from "../data/schema_struct";
+import { EmptyProps } from "../typedef";
 
 import "../scss/Schema.scss";
 
@@ -13,7 +14,7 @@ const schemaRoot = new URL("https://asserest.github.io/json-schema/");
 /**
  * A component for documenting each JSON schema file.
  */
-class SchemaComponent extends React.Component<SchemaComponentProp, Record<string, never>, unknown> {
+class SchemaComponent extends React.Component<SchemaComponentProp, EmptyProps, unknown> {
     /**
      * Generate the content for optional properties.
      * 
